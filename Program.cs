@@ -54,13 +54,13 @@ class Program
 
                     if (!string.IsNullOrEmpty(include) && !string.IsNullOrEmpty(version))
                     {
-                        propsFile.Root.Element("ItemGroup").Add(
+                        propsFile.Root?.Element("ItemGroup")?.Add(
                             new XElement("PackageVersion",
                                 new XAttribute("Include", include),
                                 new XAttribute("Version", version))
                         );
 
-                        packageReference.Attribute("Version").Remove();
+                        packageReference.Attribute("Version")?.Remove();
                     }
                 }
 
