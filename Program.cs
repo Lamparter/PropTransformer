@@ -13,7 +13,7 @@ class Program
 		{
 			new Option<string[]>(
 				"--project-locations",
-				"Paths to the .csproj files to process"),
+				"Paths to the project files to process"),
 			new Option<string>(
 				"--props-location",
 				() => Directory.GetCurrentDirectory(),
