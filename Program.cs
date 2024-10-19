@@ -30,6 +30,12 @@ class Program
                 return;
             }
 
+            if (!Directory.Exists(propsLocation))
+            {
+                Console.WriteLine("Props location does not exist.");
+                return;
+            }
+
             var propsFilePath = Path.Combine(propsLocation, "Directory.Packages.props");
             var propsFile = new XDocument(
                 new XElement("Project",
