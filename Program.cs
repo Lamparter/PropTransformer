@@ -1,6 +1,5 @@
 ﻿using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
 using System.CommandLine.NamingConventionBinder;
 using System.IO;
 using System.Linq;
@@ -14,12 +13,16 @@ class Program
         {
             new Option<string[]>(
                 "--project-locations",
-                "Paths to the project files to process")
+                "Paths to the .csproj files to process"),
+            new Option<string>(
+                "--props-location",
+                () => Directory.GetCurrentDirectory(),
+                "Path to save the Directory.Packages.props file (default is current directory)")
         };
 
         rootCommand.Description = "Automate moving NuGet package references to Directory.Packages.props";
 
-        rootCommand.Handler = CommandHandler.Create<string[]>((projectLocations) =>
+        rootCommand.Handler = CommandHandler.Create<string[], string>((projectLocations, propsLocation) =>
         {
             if (projectLocations == null || projectLocations.Length == 0)
             {
@@ -27,7 +30,7 @@ class Program
                 return;
             }
 
-            var propsFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Directory.Packages.props");
+            var propsFilePath = Path.Combine(propsLocation, "Directory.Packages.props");
             var propsFile = new XDocument(
                 new XElement("Project",
                     new XElement("PropertyGroup",
@@ -68,7 +71,7 @@ class Program
             }
 
             propsFile.Save(propsFilePath);
-            Console.WriteLine("Package references have been moved to Directory.Packages.props");
+            Console.WriteLine($"Package references have been moved to {propsFilePath}");
         });
 
         rootCommand.InvokeAsync(args).Wait();
