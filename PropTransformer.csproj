@@ -21,6 +21,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>tool, props, riverside</PackageTags>
     <PackageIcon>PackageLogo.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
