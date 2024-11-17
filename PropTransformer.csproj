@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
+    <!--<PublishAot>true</PublishAot>-->
     <InvariantGlobalization>true</InvariantGlobalization>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>proptransformer</ToolCommandName>
@@ -20,7 +20,7 @@
     <RepositoryUrl>https://github.com/Lamparter/PropTransformer</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>tool, props, riverside</PackageTags>
-    <PackageIcon>PackageLogo.png</PackageIcon>
+    <PackageIcon>Assets\PackageLogo.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
