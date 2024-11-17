@@ -7,11 +7,42 @@
     <Nullable>enable</Nullable>
     <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>proptransformer</ToolCommandName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>PropTransformer</Title>
+    <Authors>Lamparter</Authors>
+    <Company>Riverside Valley Corporation</Company>
+    <Description>Easily migrate to a props file to manage your dependencies.</Description>
+    <Copyright>Copyright (c) 2024 Lamparter</Copyright>
+    <PackageProjectUrl>https://github.com/Lamparter/PropTransformer</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Lamparter/PropTransformer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>tool, props, riverside</PackageTags>
+    <PackageIcon>PackageLogo.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\PackageLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
     <PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta4.22272.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\PackageLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
